@@ -1,12 +1,3 @@
--- Làm sạch môi trường trước khi tạo
-DROP TABLE IF EXISTS BangDiem CASCADE;
-
-DROP TABLE IF EXISTS MonHoc CASCADE;
-
-DROP TABLE IF EXISTS SinhVien CASCADE;
-
-DROP TABLE IF EXISTS LopHoc CASCADE;
-
 -- Bảng sinh viên (3 triệu records)
 CREATE TABLE SinhVien (
     id SERIAL PRIMARY KEY,

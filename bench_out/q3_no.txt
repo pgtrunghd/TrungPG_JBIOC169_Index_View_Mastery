@@ -1,0 +1,20 @@
+                                                                  QUERY PLAN                                                                   
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ Finalize Aggregate  (cost=71470.01..71470.02 rows=1 width=8) (actual time=54.274..55.104 rows=1.00 loops=1)
+   Buffers: shared hit=15930 read=38285
+   ->  Gather  (cost=71469.79..71470.00 rows=2 width=8) (actual time=54.235..55.102 rows=3.00 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=15930 read=38285
+         ->  Partial Aggregate  (cost=70469.79..70469.80 rows=1 width=8) (actual time=53.070..53.070 rows=1.00 loops=3)
+               Buffers: shared hit=15930 read=38285
+               ->  Parallel Seq Scan on sinhvien  (cost=0.00..69840.00 rows=251917 width=0) (actual time=0.031..48.716 rows=200000.33 loops=3)
+                     Filter: ((que_quan)::text = 'Hà Nội'::text)
+                     Rows Removed by Filter: 800000
+                     Buffers: shared hit=15930 read=38285
+ Planning:
+   Buffers: shared hit=84
+ Planning Time: 0.153 ms
+ Execution Time: 55.128 ms
+(16 rows)
+

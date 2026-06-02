@@ -1,0 +1,22 @@
+                                                                 QUERY PLAN                                                                 
+--------------------------------------------------------------------------------------------------------------------------------------------
+ Nested Loop  (cost=70.99..17372.11 rows=5973 width=83) (actual time=0.960..6.981 rows=6001.00 loops=1)
+   Buffers: shared hit=6012
+   ->  Index Scan using lophoc_pkey on lophoc l  (cost=0.27..8.29 rows=1 width=39) (actual time=0.005..0.006 rows=1.00 loops=1)
+         Index Cond: (id = 1)
+         Index Searches: 1
+         Buffers: shared hit=3
+   ->  Bitmap Heap Scan on sinhvien sv  (cost=70.72..17304.09 rows=5973 width=52) (actual time=0.953..6.591 rows=6001.00 loops=1)
+         Recheck Cond: (lop_id = 1)
+         Heap Blocks: exact=6001
+         Buffers: shared hit=6009
+         ->  Bitmap Index Scan on idx_sinhvien_lop_id  (cost=0.00..69.23 rows=5973 width=0) (actual time=0.413..0.413 rows=6001.00 loops=1)
+               Index Cond: (lop_id = 1)
+               Index Searches: 1
+               Buffers: shared hit=8
+ Planning:
+   Buffers: shared hit=201
+ Planning Time: 0.487 ms
+ Execution Time: 7.157 ms
+(18 rows)
+

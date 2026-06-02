@@ -1,0 +1,21 @@
+                                                                                   QUERY PLAN                                                                                   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Finalize Aggregate  (cost=10760.10..10760.11 rows=1 width=8) (actual time=10.846..11.379 rows=1.00 loops=1)
+   Buffers: shared hit=523
+   ->  Gather  (cost=10759.89..10760.10 rows=2 width=8) (actual time=10.844..11.377 rows=3.00 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=523
+         ->  Partial Aggregate  (cost=9759.89..9759.90 rows=1 width=8) (actual time=9.543..9.543 rows=1.00 loops=3)
+               Buffers: shared hit=523
+               ->  Parallel Index Only Scan using idx_sinhvien_que_quan on sinhvien  (cost=0.43..9130.10 rows=251917 width=0) (actual time=0.036..5.450 rows=200000.33 loops=3)
+                     Index Cond: (que_quan = 'Hà Nội'::text)
+                     Heap Fetches: 0
+                     Index Searches: 1
+                     Buffers: shared hit=523
+ Planning:
+   Buffers: shared hit=142
+ Planning Time: 0.299 ms
+ Execution Time: 11.420 ms
+(17 rows)
+

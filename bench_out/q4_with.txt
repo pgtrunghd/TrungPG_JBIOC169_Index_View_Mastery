@@ -1,0 +1,16 @@
+                                                                      QUERY PLAN                                                                      
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ Bitmap Heap Scan on sinhvien  (cost=4176.69..62957.93 rows=304416 width=78) (actual time=9.189..55.253 rows=300001.00 loops=1)
+   Recheck Cond: (((gioi_tinh)::text = 'Nam'::text) AND ((que_quan)::text = 'Hà Nội'::text))
+   Heap Blocks: exact=54215
+   Buffers: shared read=54474
+   ->  Bitmap Index Scan on idx_sinhvien_gioitinh_quequan  (cost=0.00..4100.59 rows=304416 width=0) (actual time=5.272..5.272 rows=300001.00 loops=1)
+         Index Cond: (((gioi_tinh)::text = 'Nam'::text) AND ((que_quan)::text = 'Hà Nội'::text))
+         Index Searches: 1
+         Buffers: shared read=259
+ Planning:
+   Buffers: shared hit=113 read=32
+ Planning Time: 1.061 ms
+ Execution Time: 61.823 ms
+(12 rows)
+

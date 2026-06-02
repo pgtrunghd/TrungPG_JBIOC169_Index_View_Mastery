@@ -1,0 +1,16 @@
+                                                         QUERY PLAN                                                         
+----------------------------------------------------------------------------------------------------------------------------
+ Gather  (cost=1000.00..70840.10 rows=1 width=112) (actual time=41.739..42.668 rows=1.00 loops=1)
+   Workers Planned: 2
+   Workers Launched: 2
+   Buffers: shared hit=15831 read=38384
+   ->  Parallel Seq Scan on sinhvien  (cost=0.00..69840.00 rows=1 width=112) (actual time=27.870..40.626 rows=0.33 loops=3)
+         Filter: ((email)::text = 'nam.nguyen@techmaster.edu.vn'::text)
+         Rows Removed by Filter: 1000000
+         Buffers: shared hit=15831 read=38384
+ Planning:
+   Buffers: shared hit=102
+ Planning Time: 0.156 ms
+ Execution Time: 42.684 ms
+(12 rows)
+

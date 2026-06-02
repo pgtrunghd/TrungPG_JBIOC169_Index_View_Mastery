@@ -1,0 +1,12 @@
+                                                      QUERY PLAN                                                      
+----------------------------------------------------------------------------------------------------------------------
+ Seq Scan on sinhvien  (cost=0.00..99215.00 rows=304416 width=78) (actual time=0.066..138.811 rows=300001.00 loops=1)
+   Filter: (((gioi_tinh)::text = 'Nam'::text) AND ((que_quan)::text = 'Hà Nội'::text))
+   Rows Removed by Filter: 2699999
+   Buffers: shared hit=16137 read=38078
+ Planning:
+   Buffers: shared hit=90
+ Planning Time: 0.146 ms
+ Execution Time: 144.330 ms
+(8 rows)
+
